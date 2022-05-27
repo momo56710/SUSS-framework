@@ -1,0 +1,216 @@
+#dropdown {
+  display: none;
+}
+#hamburger {
+  display: none;
+}
+.logo {
+  display: none;
+}
+@mixin navdp($bg-color: black) {
+}
+@mixin nav {
+  display: grid;
+  padding-top: 1em;
+  padding: 2em 3em;
+  gap: 2em;
+  align-items: center;
+  justify-items: center;
+  ul {
+    display: flex;
+    gap: 2em;
+    padding: 0;
+  }
+  li {
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
+    padding-bottom: 0.5em;
+    text-align: center;
+  }
+}
+
+@mixin input {
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  border: none;
+  width: fit-content;
+  height: fit-content;
+  padding: 1.5em;
+}
+
+.nav-1 {
+  @include nav;
+  grid-template-columns: 1fr 2fr 1fr;
+  .search {
+    @include input;
+  }
+}
+.nav-2 {
+  @include nav;
+  grid-template-columns: 2fr 3fr;
+}
+.nav-3 {
+  @include nav;
+  grid-template-rows: fit-content fit-content;
+  gap: 4em;
+
+  ul {
+    width: 70em;
+    justify-content: space-between;
+  }
+}
+@mixin line-1 {
+  transition: 300ms;
+  height: 5px;
+  border-radius: 10px;
+  content: "";
+  position: absolute;
+  width: 0%;
+  bottom: 0;
+}
+@each $key, $val in $colors {
+  .lineR-#{$key} {
+    &::before {
+      @include line-1;
+      right: 0;
+      background-color: #{$val};
+    }
+    &:hover::before {
+      width: 100%;
+    }
+  }
+  .lineL-#{$key} {
+    &::before {
+      @include line-1;
+      background-color: #{$val};
+    }
+    &:hover::before {
+      width: 100%;
+    }
+  }
+
+  .linesR-#{$key} * * {
+    &::before {
+      @include line-1;
+      right: 0;
+      background-color: #{$val};
+    }
+    &:hover::before {
+      width: 100%;
+    }
+  }
+
+  .linesL-#{$key} * * {
+    &::before {
+      @include line-1;
+      background-color: #{$val};
+    }
+    &:hover::before {
+      width: 100%;
+    }
+  }
+}
+@include lg {
+  .nav-logo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  #hamburger {
+    display: inline;
+    cursor: pointer;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    padding-left: 3em;
+  }
+  .hum-menu {
+    margin: 2em;
+    order: 2;
+    display: flex;
+    justify-content: flex-end;
+  }
+  @each $key, $val in $colors {
+    .hum-bg-#{$key} {
+      background-color: $val;
+    }
+  }
+  @each $key, $val in $colors {
+    @each $k, $v in $colors {
+      .navdp-bg-#{$key}-txt-#{$k} {
+        all: unset;
+        width: 100vw;
+        height: 100vh;
+        color: $v;
+        transition: all 0.5s ease;
+        list-style: none;
+        background-color: #{$val};
+        opacity: 0;
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5em;
+        ul {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+
+  @each $key, $val in $colors {
+    .hum-#{$key} * * {
+      fill: none;
+      stroke: #{$val};
+      stroke-width: 6;
+      transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+        stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+  #logo {
+    display: none;
+  }
+  #hamburger .line1 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+  }
+
+  #hamburger .line2 {
+    stroke-dasharray: 60 60;
+    stroke-width: 6;
+  }
+
+  #hamburger .line3 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+  }
+
+  #hamburger.open .line1 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+  }
+
+  #hamburger.open .line2 {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+    stroke-width: 6;
+  }
+
+  #hamburger.open .line3 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+  }
+
+  #dropdown:checked ~ div {
+    transform: translate(0);
+    opacity: 1;
+  }
+}

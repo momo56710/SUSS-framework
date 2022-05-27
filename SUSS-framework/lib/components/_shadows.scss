@@ -1,0 +1,50 @@
+@each $key, $val in $colors {
+    .shdw-1-#{$key} {
+        box-shadow: rgba($val, 0.4) -5px 5px, rgba($val, 0.3) -10px 10px, rgba($val, 0.2) -15px 15px,
+            rgba($val, 0.1) -20px 20px, rgba($val, 0.05) -25px 25px;
+    }
+    .shdw-2-#{$key} {
+        box-shadow: rgba($val, 0.4) 0px 5px, rgba($val, 0.3) 0px 10px, rgba($val, 0.2) 0px 15px,
+            rgba($val, 0.1) 0px 20px, rgba($val, 0.05) 0px 25px;
+    }
+    .shdw-3-#{$key} {
+        box-shadow: rgba($val, 0.4) 5px 5px, rgba($val, 0.3) 10px 10px, rgba($val, 0.2) 15px 15px,
+            rgba($val, 0.1) 20px 20px, rgba($val, 0.05) 25px 25px;
+    }
+    .shdw-4-#{$key} {
+        box-shadow: 0 10px 20px rgba($val, 0.19), 0 6px 6px rgba($val, 0.23);
+    }
+    .shdw-5-#{$key} {
+        box-shadow: 0 19px 38px rgba($val, 0.3), 0 15px 12px rgba($val, 0.22);
+    }
+    .shdw-6-#{$key} {
+        box-shadow: 15px 15px rgba($val, 0.3);
+    }
+    .shdw-7-#{$key} {
+        box-shadow: 15px -15px rgba($val, 0.3);
+    }
+    .shdw-1-hvr-#{$key}:hover {
+        box-shadow: rgba($val, 0.4) -5px 5px, rgba($val, 0.3) -10px 10px, rgba($val, 0.2) -15px 15px,
+            rgba($val, 0.1) -20px 20px, rgba($val, 0.05) -25px 25px;
+    }
+    .shdw-2-hvr-#{$key}:hover {
+        box-shadow: rgba($val, 0.4) 0px 5px, rgba($val, 0.3) 0px 10px, rgba($val, 0.2) 0px 15px,
+            rgba($val, 0.1) 0px 20px, rgba($val, 0.05) 0px 25px;
+    }
+    .shdw-3-hvr-#{$key}:hover {
+        box-shadow: rgba($val, 0.4) 5px 5px, rgba($val, 0.3) 10px 10px, rgba($val, 0.2) 15px 15px,
+            rgba($val, 0.1) 20px 20px, rgba($val, 0.05) 25px 25px;
+    }
+    .shdw-4-hvr-#{$key}:hover {
+        box-shadow: 0 10px 20px rgba($val, 0.19), 0 6px 6px rgba($val, 0.23);
+    }
+    .shdw-5-hvr-#{$key}:hover {
+        box-shadow: 0 19px 38px rgba($val, 0.3), 0 15px 12px rgba($val, 0.22);
+    }
+    .shdw-6-hvr-#{$key}:hover {
+        box-shadow: 15px 15px rgba($val, 0.3);
+    }
+    .shdw-7-hvr-#{$key}:hover {
+        box-shadow: 15px -15px rgba($val, 0.3);
+    }
+}

@@ -1,0 +1,77 @@
+
+
+@each $key, $val in $colors {
+  .text-#{$key} {
+    color: $val;
+  }
+  .text-hover-#{$key} {
+    &:hover {
+      color: $val;
+    }
+  }
+  @include lg {
+    #hamburger .line-#{$key} {
+      fill: none;
+      stroke: $val;
+      stroke-width: 6;
+      transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .hum-bg-#{$key}{
+      background-color: $val;
+      color: set-color($val);
+    }
+  }
+  .placeholder-#{$key} {
+    &::placeholder {
+      color: $val;
+    }
+  }
+  .bg-#{$key} {
+    background-color: $val;
+   
+  }
+  @each $ke, $va in $colors {
+    .bg-radial-gr-#{$ke}-#{$key} {
+      background-image: radial-gradient($va, $val);
+    }
+    @each $k, $v in $directions {
+      @if ($ke != $key) {
+        .bg-linear-gr-#{$ke}-#{$key}-#{$k} {
+          background-image: linear-gradient($v, $va, $val);
+        }
+      }
+    }
+  }
+  @if ($val != black and $val != white) {
+    // light variations
+    @for $i from 1 through 9 {
+      .text-#{$key}-light-#{$i} {
+        color: mix(white, $val, $i * 10);
+
+      }
+      .text-hover-#{$key}-light-#{$i} {
+        &:hover {
+          color: mix(white, $val, $i * 10);
+        }
+      }
+      .bg-#{$key}-light-#{$i} {
+        background-color: mix(white, $val, $i * 10);
+      }
+    }
+
+    // dark variations
+    @for $i from 1 through 9 {
+      .text-#{$key}-dark-#{$i} {
+        color: mix(black, $val, $i * 10);
+      }
+      .text-hover-#{$key}-dark-#{$i} {
+        &:hover {
+          color: mix(black, $val, $i * 10);
+        }
+      }
+      .bg-#{$key}-dark-#{$i} {
+        background-color: mix(black, $val, $i * 10);
+      }
+    }
+  }
+}

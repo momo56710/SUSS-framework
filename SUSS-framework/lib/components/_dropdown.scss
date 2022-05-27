@@ -1,0 +1,59 @@
+@use "sass:math";
+.dropdown {
+    position: relative;
+    perspective: 1000px;
+    width: fit-content;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+@mixin dropdown_menu {
+    position: absolute;
+    top: 1.3em;
+    width: 100%;
+    perspective: 1000px;
+    z-index: 100;
+    display: none;
+    opacity: 0;
+
+    * {
+        padding: 20px;
+        display: none;
+        opacity: 0;
+    }
+}
+
+.dropdown:hover * {
+    opacity: 1;
+    display: block;
+}
+
+.dropdown-menu-1 {
+    @include dropdown_menu;
+    animation: growDown 500ms ease-in-out forwards;
+    transform-origin: top center;
+}
+
+.dropdown-menu-2 {
+    @include dropdown_menu;
+    animation: rotateMenu 500ms ease-in-out forwards;
+    transform-origin: top center;
+}
+.dropdown-menu-3 {
+    @include dropdown_menu;
+    animation: downOut 500ms ease-in-out forwards;
+    transform-origin: center center;
+}
+.dropdown-menu-4 {
+    @include dropdown_menu;
+    animation: growOut 500ms ease-in-out forwards;
+    transform-origin: top center;
+}
+.dropdown-menu-5 {
+    @include dropdown_menu;
+    animation: rotateY 500ms  ease-in-out forwards;
+    transform-origin: top center;
+}

@@ -1,0 +1,140 @@
+@use "sass:math";
+
+$utilities: (
+  "height": (
+    "prefix": "h",
+    "values": (
+      "100v" : "100vh",
+      "100" : "100%"
+    ),
+  ),
+  "width": (
+    "prefix": "w",
+    "values": (
+      "100v" : "100vw",
+      "100" : "100%"
+    ),
+  ),
+  "border-radius": (
+    "prefix": "br",
+    "values": (
+      "1": 10px,
+      "2": 20px,
+      "3": 30px,
+      "4": 40px,
+      "5": 50px,
+      "10": 10%,
+      "20": 20%,
+      "30": 30%,
+      "40": 40%,
+      "50": 50%,
+    ),
+  ),
+  "display": (
+    "prefix": "d",
+    "values": (
+      "n": none,
+      "b": block,
+      "f": flex,
+      "i": inline,
+      "i-b": inline-block,
+    ),
+  ),
+  "justify-content": (
+    "prefix": "jc",
+    "values": (
+      "s": flex-start,
+      "c": center,
+      "e": flex-end,
+      "sb": space-between,
+      "sa": space-around,
+      "se": space-evenly,
+    ),
+  ),
+  "align-items": (
+    "prefix": "ai",
+    "values": (
+      "s": flex-start,
+      "c": center,
+      "e": flex-end,
+    ),
+  ),
+  "cursor": (
+    "prefix": "c",
+    "values": (
+      "pointer":pointer,
+      "help": help,
+      "wait": wait,
+      "crosshair": crosshair,
+      "not-allowed": not-allowed,
+      " zoom-in":  zoom-in,
+      "grab": grab,
+    ),
+  ),
+  "font-size": (
+    "prefix": "f",
+    "values": (
+      "xl": $font-size-xl,
+      "lg": $font-size-lg,
+      "md": $font-size-md,
+      "df": $font-size-df,
+      "sm": $font-size-sm,
+      "xs": $font-size-xs,
+    ),
+  ),
+);
+$u-1 : (
+  "p" :  "padding",
+  "pl" : "padding-left",
+  "pr" : "padding-right",
+  "pt" : "padding-top",
+  "pb" : "padding-bottom",
+  "m" :  "margin",
+  "ml" : "margin-left",
+  "mr" : "margin-right",
+  "mt" : "margin-top",
+  "mb" : "margin-bottom",
+  "g" : "gap"
+);
+$u-2 : (
+  "h" : "height",
+  "w" : "width"
+);
+$u-3 : (
+   "t" : "transition"
+);
+$u-4 : (
+   "o" : "opacity"
+);
+$max: 105;
+$s: 10;
+
+@for $i from 2 through ceil(calc($max/$s)) {
+    $v: ($i - 1)*$s ;
+    @each $key,$name in $u-1 {
+      .#{$key}-#{calc($v/10)} {#{$name} : #{$v}px}
+    }
+    @each $key,$name in $u-2 {
+      .#{$key}-#{calc($v/10)} {#{$name} : #{$v*10}px}
+    }
+}
+@for $i from 2 through ceil(calc($max/$s)) {
+    $v: ($i - 1)*$s;
+    @each $key,$name in $u-3 {
+      .#{$key}-#{calc($v/10)} {#{$name} : #{$v*10}ms}
+    }
+    @each $key,$name in $u-4 {
+      .#{$key}-#{$v*0.1} {#{$name} : #{$v*0.01}}
+    }
+    
+}
+@each $property, $map in $utilities {
+  $prefix: map-get($map, "prefix");
+  $values: map-get($map, "values");
+
+  @each $k, $v in $values {
+      .#{$prefix}-#{$k} {
+        #{$property}: $v;
+      }
+  }
+}

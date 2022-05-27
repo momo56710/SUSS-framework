@@ -1,0 +1,60 @@
+// theme colors
+$primary: #326dee !default;
+$secondary: #1ac886 !default;
+$error: #d32752 !default;
+$info: #f6c31c !default;
+$custom-color-1: #ffffff !default;
+$custom-color-2: #ffffff !default;
+$custom-color-3: #ffffff !default;
+$custom-color-4: #ffffff !default;
+$custom-color-5: #ffffff !default;
+$custom-color-6: #ffffff !default;
+$custom-color-7: #ffffff !default;
+$custom-color-8: #ffffff !default;
+$custom-color-9: #ffffff !default;
+$custom-color-10: #ffffff !default;
+
+// color palette
+$colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "error": $error,
+  "info": $info,
+  "black": black,
+  "white": white,
+  "grey" : grey,
+  "cc-1": $custom-color-1,
+  "cc-2": $custom-color-2,
+  "cc-3": $custom-color-3,
+  "cc-4": $custom-color-4,
+  "cc-5": $custom-color-5,
+  "cc-6": $custom-color-6,
+  "cc-7": $custom-color-7,
+  "cc-8": $custom-color-8,
+  "cc-9": $custom-color-9,
+  "cc-10": $custom-color-10,
+  "black-suss": #1c1921,
+  "white-suss": #fbfff1,
+  "gray-suss": #696969,
+) !default;
+$directions : (
+  "y" : to bottom,
+  "x" : to right,
+)!default;
+// spacing
+$base-padding: 0.75rem !default;
+$base-margin: 0.75rem !default;
+
+// borders
+$base-border-thickness: 1px !default;
+
+// box-shadow
+$base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1) !default;
+
+// font sizes
+$font-size-xl: 2.441em !default;
+$font-size-lg: 1.953em !default;
+$font-size-md: 1.25em !default;
+$font-size-df: 1em !default;
+$font-size-sm: 0.8em !default;
+$font-size-xs: 0.64em !default;

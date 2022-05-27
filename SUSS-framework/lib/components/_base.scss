@@ -1,0 +1,27 @@
+// import google font
+
+/* reset styles */
+* {
+  color: inherit;
+  margin: 0;
+}
+
+body {
+  font-family: 'Amatic SC', cursive;
+}
+ul {
+  list-style: none;
+}
+a {
+  all: unset;
+}
+
+
+hr {
+  border: 0;
+  border-top: 1px dotted #efefef;
+}
+
+img {
+  max-width: 100%;
+}
